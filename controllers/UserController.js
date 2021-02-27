@@ -1,5 +1,3 @@
-const resultRouter = require('../routes/signin');
-
 module.exports = {
   doGetUser: (req, res, next) => {
     res.render('index', {});
