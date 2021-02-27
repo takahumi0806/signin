@@ -1,8 +1,13 @@
+const resultRouter = require('../routes/signin');
+
 module.exports = {
   doGetUser: (req, res, next) => {
     res.render('index', {});
   },
   doSigninUser: (req, res, next) => {
-    res.render('signin', {});
+    const name = req.body.userName;
+    res.render('signin', {
+      name: name,
+    });
   },
 };
