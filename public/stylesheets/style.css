@@ -1,7 +1,7 @@
 header {
   display: flex;
 }
-ul {
+.ul {
   display: flex;
   list-style: none;
   margin: 0 0 0 auto;
@@ -21,4 +21,8 @@ th {
 a {
   text-decoration: none;
   color: aqua;
+}
+.errorMessage{
+  margin: 30px auto;
+  width: 300px;
 }

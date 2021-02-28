@@ -6,7 +6,7 @@
   <body>
     <header>
       <div>Larevel</div>
-      <ul>
+      <ul class="ul">
         <li>login</li>
         <li>Register</li>
       </ul>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td>E-mail Address</td>
-          <td><input type="text" name="mail" /></td>
+          <td><input type="text" name="email" /></td>
         </tr>
         <tr>
           <td>Password</td>
@@ -31,15 +31,22 @@
         </tr>
         <tr>
           <td>Confirm Password</td>
-          <td><input type="password"  name="confirmPassword" /></td>
+          <td><input type="password" name="confirmPassword" /></td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <input type="submit" value="Register">
+            <input type="submit" value="Register" />
           </td>
         </tr>
       </table>
     </form>
+    <% if(errorMessage) { %>
+    <ul class="errorMessage">
+      <% for (let error in errorMessage) { %>
+      <li><%= errorMessage[ error ].msg %></li>
+      <% } %>
+    </ul>
+    <% } %>
   </body>
 </html>

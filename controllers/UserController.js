@@ -1,8 +1,10 @@
 module.exports = {
-  doGetUser: (req, res, next) => {
-    res.render('index', {});
+  doGetUser: (req, res, error) => {
+    res.render('index', {
+      errorMessage: error,
+    });
   },
-  doSigninUser: (req, res, next) => {
+  doSigninUser: (req, res) => {
     const name = req.body.userName;
     res.render('signin', {
       name: name,
