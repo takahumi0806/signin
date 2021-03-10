@@ -4,7 +4,6 @@ const router = express.Router();
 const userController = require('./controllers/UserController');
 const bodyParser = require('body-parser');
 const userRegistValidator = require('./validators/userRegistValidator');
-const { validationResult } = require('express-validator');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 const server = app.listen(3000, function () {
@@ -15,14 +14,5 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', userController.doGetUser);
-app.post('/signin', userRegistValidator, (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    const errors_array = errors.array();
-    res.render('./index', userController.doGetUser(req, res, errors_array));
-  } else {
-    res.render('./signin', userController.doSigninUser(req, res));
-  }
-});
-
+app.post('/signin', userRegistValidator,  userController.doSigninUser)
 module.exports = router;
